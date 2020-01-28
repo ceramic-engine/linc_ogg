@@ -19,7 +19,7 @@ class Test {
         test_read();
         test_callbacks();
 
-    } //main
+    }
 
 //test basic usage of reading information
 
@@ -67,7 +67,7 @@ class Test {
         trace('128 bytes:\n' + str128(buffer));
         trace('clear: ' + code(Ogg.ov_clear(file)));
 
-    } //test_read
+    }
 
 //Callback tests
 
@@ -123,7 +123,7 @@ class Test {
         trace('128 bytes:\n' + str128(buffer));
         trace('clear: ' + code(Ogg.ov_clear(file)));
 
-    } //test_callbacks
+    }
 
 
         //user read function for ogg callbacks
@@ -140,7 +140,7 @@ class Test {
 
         return read;
 
-    } //oread
+    }
 
         //user seek function for ogg callbacks
     static function oseek(userdata:FileInfo,offset:Int,whence:OggWhence):Void {
@@ -155,7 +155,7 @@ class Test {
 
         userdata.file.seek(offset, _w);
 
-    } //oseek
+    }
 
         //user close function for ogg callbacks
     static function oclose(userdata:FileInfo):Void {
@@ -165,7 +165,7 @@ class Test {
         userdata.file.close();
         userdata = null;
 
-    } //oclose
+    }
 
         //user tell function for ogg callbacks
     static function otell(userdata:FileInfo):Int {
@@ -176,7 +176,7 @@ class Test {
 
         return res;
 
-    } //otell
+    }
 
 
 //helpers
@@ -194,7 +194,7 @@ class Test {
 
         return s;
 
-    } //str128
+    }
 
         //converts return code to string
     static function code(_code:OggCode) : String {
@@ -215,6 +215,6 @@ class Test {
             case OggCode.OV_HOLE: 'OV_HOLE';
             case _:'$_code';
         }
-    } //code
+    }
 
-} //Test
+}

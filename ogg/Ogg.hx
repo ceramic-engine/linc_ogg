@@ -127,7 +127,7 @@ extern class Ogg {
     @:native('linc::ogg::internal_open_callbacks')
     private static function internal_open_callbacks(id:Int, vf:OggVorbisFile, initial:BytesData, ibytes:Int):Int;
 
-} //Ogg
+}
 
 @:allow(ogg.Ogg)
 private class Ogg_helper {
@@ -155,7 +155,7 @@ private class Ogg_helper {
 
         return @:privateAccess Ogg.internal_open_callbacks(current_seq, file, initial, ibytes);
 
-    } //ov_open_callbacks
+    }
 
     static function read_callback(cb_id:Int, size:Int, nmemb:Int, data:BytesData):Int {
 
@@ -168,7 +168,7 @@ private class Ogg_helper {
         //:todo: set by thread errno?
         return 0;
 
-    } //read_callback
+    }
 
     static function seek_callback(cb_id:Int, offset:Int, whence:OggWhence):Int {
 
@@ -182,7 +182,7 @@ private class Ogg_helper {
         //failure, not seekable
         return OggCode.OV_FALSE;
 
-    } //seek_callback
+    }
 
     static function close_callback(cb_id:Int):Int {
 
@@ -195,7 +195,7 @@ private class Ogg_helper {
         //not checked by vorbis
         return 0;
 
-    } //close_callback
+    }
 
     static function tell_callback(cb_id:Int):Int {
 
@@ -209,10 +209,10 @@ private class Ogg_helper {
             //only that past the end should return the same as `fseek(file,SEEK_END,0)`
         return OggCode.OV_FALSE;
 
-    } //tell_callback
+    }
 
 
-} //Ogg_helper
+}
 
 private typedef InternalCallbackInfo = {
     var id:Int;
